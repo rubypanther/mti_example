@@ -1,9 +1,6 @@
 class CreateAuthlogicFields < ActiveRecord::Migration
   def up
     create_table :authlogic_fields, :id => false do |t|
-      t.string :type
-      t.string :login
-      t.string :email
       t.string :crypted_password
       t.string :password_salt
       t.string :persistence_token

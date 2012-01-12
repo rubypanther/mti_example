@@ -11,6 +11,36 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20120112031911) do
+
+  create_table "authlogic_fields", :id => false, :force => true do |t|
+    t.string  "crypted_password"
+    t.string  "password_salt"
+    t.string  "persistence_token"
+    t.string  "single_access_token"
+    t.string  "perishable_token"
+    t.integer "login_count"
+  end
+
+  create_table "members", :id => false, :force => true do |t|
+    t.integer  "id",                  :null => false
+    t.string   "type"
+    t.string   "login"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.string   "single_access_token"
+    t.string   "perishable_token"
+    t.integer  "login_count"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "type"
+    t.string   "login"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
