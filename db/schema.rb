@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20120112031911) do
     t.string   "single_access_token"
     t.string   "perishable_token"
     t.integer  "login_count"
+    t.integer  "referred_by_id"
   end
 
   create_table "users", :force => true do |t|
