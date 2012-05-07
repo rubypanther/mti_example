@@ -12,7 +12,7 @@ The main technique here is to use a :type column and let AR think that standard 
 
 Also, child tables need a carefully constructed migration.
 
-This example uses three tables and two models. There is a base table users, a child table members, and mixin table authlogic_fields.
+This example uses three tables and two models. There is a base table users, a child table members with an extra column for a self-referencial belongs_to, and mixin table authlogic_fields.
 
 The intention of the example is just enough that you can play with it in irb. It is not a complete example, and I did not add views or any of that.
 
@@ -25,6 +25,9 @@ Where there is:
 
 If you know of a better to set the primary key than to use the ALTER TABLE statement in the members migration, please let me know. It would be ideal to have just the one create_table call.
 
+== BUGS
+
+If you use the parent model directly, the objects will get the correct child class but will only have the columns in the parent. Calling #reload will load the missing fields.
 
 --
 2012 Paris Sinclair
